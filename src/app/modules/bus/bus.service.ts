@@ -7,3 +7,8 @@ export const createBusToDB = async (payload: IBus): Promise<IBus> => {
   console.log(bus);
   return bus;
 };
+
+export const getAllBusFromDB = async (): Promise<IBus[]> => {
+  const bus = Bus.find({});
+  return bus;
+};
