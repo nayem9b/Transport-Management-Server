@@ -17,3 +17,8 @@ export const getAllRequisitionFromDB = async () => {
   console.log(allRequisitions);
   return allRequisitions;
 };
+
+export const deleteRequisitionFromDB = async (id: string) => {
+  const result = await Requisition.findByIdAndDelete(id);
+  return result;
+};

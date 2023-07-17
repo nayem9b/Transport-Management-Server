@@ -1,9 +1,10 @@
-import { Request, RequestHandler, Response } from "express";
+import { NextFunction, Request, RequestHandler, Response } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import httpStatus from "http-status";
 import sendResponse from "../../../shared/sendResponse";
 import {
   createRequisitionToDB,
+  deleteRequisitionFromDB,
   getAllRequisitionFromDB,
 } from "./requisition.service";
 import { IRequisition } from "./requisition.interface";
@@ -30,6 +31,20 @@ export const getRequisitions: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "Requision retrived successfully !",
+      data: result,
+    });
+  }
+);
+
+export const deleteSpecificRequisation = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const id = req.params.id;
+
+    const result = await deleteRequisitionFromDB(id);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Requisition DELETED successfully !",
       data: result,
     });
   }
