@@ -8,6 +8,7 @@ import sendResponse from "../../../shared/sendResponse";
 export const createBus: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const data = req.body;
+    console.log(data);
     const result = await createBusToDB(data);
 
     sendResponse<IBus>(res, {

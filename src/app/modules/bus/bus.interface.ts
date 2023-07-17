@@ -1,8 +1,8 @@
 export interface IBus {
-  busType: "student" | "teacher" | "employee" | "officials";
+  busType: "Student" | "Teacher" | "Employee" | "Teacher + Employee";
   schedule: string;
   busNumber: number;
-  day: "weekday" | "friday" | "saturday";
-  location: "fromCampus" | "fromShohor";
+  day: "Sunday to Thursday" | "Friday" | "Saturday";
+  location: "fromcampus" | "fromshohor";
   stopage?: string[];
 }

@@ -30,7 +30,7 @@ const busSchema = new Schema<IBus>({
 
 busSchema.pre("save", async function (next) {
   let bus = this;
-  if (bus.busType === "student") {
+  if (bus.busType === "Student") {
     bus.stopage = studentBusStops;
   } else {
     bus.stopage = teacherBusStops;
