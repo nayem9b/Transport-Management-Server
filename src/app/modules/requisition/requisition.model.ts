@@ -30,6 +30,10 @@ const RequisitionSchema = new Schema<IRequisition>({
     type: String,
     required: true,
   },
+  isVerified: {
+    type: String,
+    required: true,
+  },
 });
 
 export const Requisition = model<IRequisition>(

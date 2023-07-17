@@ -6,4 +6,5 @@ export interface IRequisition {
   ls: string;
   date: string;
   reason: string;
+  isVerified?: string;
 }

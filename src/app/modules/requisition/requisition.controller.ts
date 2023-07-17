@@ -6,6 +6,7 @@ import {
   createRequisitionToDB,
   deleteRequisitionFromDB,
   getAllRequisitionFromDB,
+  updateRequisitionFromDB,
 } from "./requisition.service";
 import { IRequisition } from "./requisition.interface";
 
@@ -39,12 +40,27 @@ export const getRequisitions: RequestHandler = catchAsync(
 export const deleteSpecificRequisation = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id;
-
+    console.log(id);
     const result = await deleteRequisitionFromDB(id);
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: "Requisition DELETED successfully !",
+      data: result,
+    });
+  }
+);
+
+export const updateRequisitionStatus = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const id = req.params.id;
+    const updatedData = req.body;
+
+    const result = await updateRequisitionFromDB(id, updatedData);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "status UPDATED successfully !",
       data: result,
     });
   }
