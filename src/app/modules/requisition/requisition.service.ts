@@ -1,5 +1,8 @@
 import { IRequisition } from "./requisition.interface";
 import { Requisition } from "./requisition.model";
+import { IUser } from "../user/user.interface";
+import { User } from "../user/user.model";
+
 export const createRequisitionToDB = async (
   payload: IRequisition
 ): Promise<IRequisition> => {
@@ -7,4 +10,10 @@ export const createRequisitionToDB = async (
   await requisitionData.save();
   console.log(requisitionData);
   return requisitionData;
+};
+
+export const getAllRequisitionFromDB = async () => {
+  const allRequisitions = await Requisition.find({});
+  console.log(allRequisitions);
+  return allRequisitions;
 };
