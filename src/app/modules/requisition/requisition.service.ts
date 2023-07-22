@@ -31,3 +31,9 @@ export const updateRequisitionFromDB = async (id: string, payload) => {
   });
   return result;
 };
+
+export const getUserRequisitionFromDB = async (email: string) => {
+  console.log(email);
+  const result = await Requisition.find({ email: email }, { isVerified: true });
+  return result;
+};

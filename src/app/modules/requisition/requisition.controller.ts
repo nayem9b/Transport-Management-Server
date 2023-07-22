@@ -6,6 +6,7 @@ import {
   createRequisitionToDB,
   deleteRequisitionFromDB,
   getAllRequisitionFromDB,
+  getUserRequisitionFromDB,
   updateRequisitionFromDB,
 } from "./requisition.service";
 import { IRequisition } from "./requisition.interface";
@@ -61,6 +62,19 @@ export const updateRequisitionStatus = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "status UPDATED successfully !",
+      data: result,
+    });
+  }
+);
+export const getUserRequisition = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const email = req.params.id;
+
+    const result = await getUserRequisitionFromDB(email);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "user Requisition Retrived successfully !",
       data: result,
     });
   }

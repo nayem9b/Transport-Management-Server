@@ -28,6 +28,10 @@ const RequisitionSchema = new Schema<IRequisition>({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
   employeeId: {
     type: String,
   },

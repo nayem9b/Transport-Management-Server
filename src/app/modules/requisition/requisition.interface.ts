@@ -9,4 +9,5 @@ export interface IRequisition {
   isVerified?: string;
   employeeId?: string;
   role?: string;
+  email: string;
 }
