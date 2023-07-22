@@ -8,7 +8,6 @@ const RequisitionSchema = new Schema<IRequisition>({
   },
   id: {
     type: Number,
-    required: true,
   },
   faculty: {
     type: String,
@@ -20,7 +19,6 @@ const RequisitionSchema = new Schema<IRequisition>({
   },
   ls: {
     type: String,
-    required: true,
   },
   date: {
     type: String,
@@ -30,9 +28,14 @@ const RequisitionSchema = new Schema<IRequisition>({
     type: String,
     required: true,
   },
+  employeeId: {
+    type: String,
+  },
   isVerified: {
     type: String,
-    required: true,
+  },
+  role: {
+    type: String,
   },
 });
 
