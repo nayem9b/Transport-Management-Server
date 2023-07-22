@@ -31,3 +31,10 @@ export const updateSpecificBusFromDB = async (
     console.log("You Faced an error");
   }
 };
+
+export const deleteSpecificBusFromDB = async (
+  id: string
+): Promise<IBus | null> => {
+  const result = await Bus.findByIdAndDelete(id);
+  return result;
+};

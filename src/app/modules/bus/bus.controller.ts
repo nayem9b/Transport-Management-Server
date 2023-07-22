@@ -2,6 +2,7 @@ import { NextFunction, Request, RequestHandler, Response } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import {
   createBusToDB,
+  deleteSpecificBusFromDB,
   getAllBusFromDB,
   updateSpecificBusFromDB,
 } from "./bus.service";
@@ -47,6 +48,20 @@ export const updateSpecificBus = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "Schedule UPDATED successfully !",
+      data: result,
+    });
+  }
+);
+
+export const deleteSpecificBus = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const id = req.params.id;
+
+    const result = await deleteSpecificBusFromDB(id);
+    sendResponse<IBus>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Bus DELETED successfully !",
       data: result,
     });
   }
