@@ -20,11 +20,13 @@ const userSchema = new Schema<IUser>({
   },
   studentID: {
     type: Number,
-    required: true,
   },
   email: {
     type: String,
     required: true,
+  },
+  employeeId: {
+    type: String,
   },
 });
 

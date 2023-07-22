@@ -16,6 +16,7 @@ export const confirmation = async (
 export const createUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const data = req.body;
+    console.log(data);
     const result = await createUserToDB(data);
 
     sendResponse<IUser>(res, {
