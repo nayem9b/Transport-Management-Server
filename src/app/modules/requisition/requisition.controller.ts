@@ -14,7 +14,7 @@ import { IRequisition } from "./requisition.interface";
 export const createRequisition: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const data = req.body;
-    console.log(data);
+
     const result = await createRequisitionToDB(data);
 
     sendResponse<IRequisition>(res, {
@@ -41,7 +41,7 @@ export const getRequisitions: RequestHandler = catchAsync(
 export const deleteSpecificRequisation = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id;
-    console.log(id);
+
     const result = await deleteRequisitionFromDB(id);
     sendResponse(res, {
       statusCode: httpStatus.OK,

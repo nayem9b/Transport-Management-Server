@@ -6,6 +6,7 @@ export const studentBusStops = [
   "Shahid Minar More",
   "Boro-Math",
 ];
+export const terminalBusStops = ["Collage More", "Terminal"];
 
 export const teacherBusStops = [
   "Balubari",

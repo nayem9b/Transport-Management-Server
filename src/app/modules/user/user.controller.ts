@@ -20,7 +20,7 @@ export const confirmation = async (
 export const createUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const data = req.body;
-    console.log(data);
+
     const result = await createUserToDB(data);
 
     sendResponse<IUser>(res, {
@@ -34,9 +34,9 @@ export const createUser: RequestHandler = catchAsync(
 export const getAdminUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log(id);
+
     const result = await getAdminFromDB(id);
-    console.log(result);
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -48,9 +48,9 @@ export const getAdminUser: RequestHandler = catchAsync(
 export const getTeacher: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log(id);
+
     const result = await getTeacherFromDB(id);
-    console.log(result);
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,

@@ -6,9 +6,9 @@ import { getBusInfoFromDB } from "./busInfo.service";
 export const getBusInfo = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id;
-    console.log(id);
+
     const allBus = await getBusInfoFromDB(id);
-    console.log(allBus);
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,

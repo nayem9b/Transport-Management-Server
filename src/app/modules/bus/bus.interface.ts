@@ -3,6 +3,6 @@ export interface IBus {
   schedule: string;
   busNumber: number;
   day: "Sunday to Thursday" | "Friday" | "Saturday";
-  location: "fromcampus" | "fromshohor";
+  location: "fromcampus" | "fromshohor" | "fromTerminal";
   stopage?: string[];
 }

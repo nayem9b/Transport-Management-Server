@@ -9,13 +9,13 @@ export const createRequisitionToDB = async (
 ): Promise<IRequisition> => {
   const requisitionData = new Requisition(payload);
   await requisitionData.save();
-  console.log(requisitionData);
+
   return requisitionData;
 };
 
 export const getAllRequisitionFromDB = async () => {
   const allRequisitions = await Requisition.find({});
-  console.log(allRequisitions);
+
   return allRequisitions;
 };
 
@@ -33,7 +33,6 @@ export const updateRequisitionFromDB = async (id: string, payload) => {
 };
 
 export const getUserRequisitionFromDB = async (email: string) => {
-  console.log(email);
   const result = await Requisition.find({ email: email }, { isVerified: true });
   return result;
 };
