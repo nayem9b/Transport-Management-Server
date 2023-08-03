@@ -3,13 +3,13 @@ import {
   confirmation,
   createUser,
   getAdminUser,
-  getTeacher,
+  getUser,
 } from "./user.controller";
 const router = express.Router();
 
 router.get("/test", confirmation);
 router.get("/users/:id", getAdminUser);
-router.get("/users/teacher/:id", getTeacher);
+router.get("/users/user/:id", getUser);
 router.post("/user", createUser);
 router.post("/user", createUser);
 export const UserRoutes = router;

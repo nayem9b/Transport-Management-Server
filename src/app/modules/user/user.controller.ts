@@ -1,9 +1,5 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import {
-  createUserToDB,
-  getAdminFromDB,
-  getTeacherFromDB,
-} from "./user.service";
+import { createUserToDB, getAdminFromDB, getUserFromDB } from "./user.service";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
@@ -45,16 +41,16 @@ export const getAdminUser: RequestHandler = catchAsync(
     });
   }
 );
-export const getTeacher: RequestHandler = catchAsync(
+export const getUser: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const result = await getTeacherFromDB(id);
+    const result = await getUserFromDB(id);
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "Teacher retrived successfully!",
+      message: "User retrived successfully!",
       data: result,
     });
   }

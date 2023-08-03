@@ -19,7 +19,7 @@ export const getAdminFromDB = async (id) => {
 
   return adminUser;
 };
-export const getTeacherFromDB = async (id) => {
+export const getUserFromDB = async (id) => {
   const adminUser = await User.find({ email: id });
 
   return adminUser;
