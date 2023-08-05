@@ -32,9 +32,11 @@ const RequisitionSchema = new Schema<IRequisition>({
     type: String,
     required: true,
   },
-  time: {
+  starting_time: {
     type: String,
-    required: true,
+  },
+  ending_time: {
+    type: String,
   },
   employeeId: {
     type: String,
@@ -43,6 +45,9 @@ const RequisitionSchema = new Schema<IRequisition>({
     type: String,
   },
   role: {
+    type: String,
+  },
+  purpose: {
     type: String,
   },
 });

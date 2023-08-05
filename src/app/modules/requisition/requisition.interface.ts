@@ -10,5 +10,7 @@ export interface IRequisition {
   employeeId?: string;
   role?: string;
   email: string;
-  time: string;
+  starting_time?: string;
+  ending_time?: string;
+  purpose?: string;
 }
