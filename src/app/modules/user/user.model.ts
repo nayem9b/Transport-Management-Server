@@ -18,6 +18,10 @@ const userSchema = new Schema<IUser>({
     type: Schema.Types.Mixed,
     required: true,
   },
+  isVerified: {
+    type: Boolean,
+    required: true,
+  },
   studentID: {
     type: Number,
   },

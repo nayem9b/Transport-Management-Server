@@ -10,7 +10,7 @@ export const createUserToDB = async (payload: IUser): Promise<IUser> => {
 
 export const getAllUsersFromDB = async (): Promise<IUser[]> => {
   const allUsers = await User.find({});
-
+  console.log(allUsers);
   return allUsers;
 };
 

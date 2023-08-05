@@ -1,5 +1,10 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { createUserToDB, getAdminFromDB, getUserFromDB } from "./user.service";
+import {
+  createUserToDB,
+  getAdminFromDB,
+  getAllUsersFromDB,
+  getUserFromDB,
+} from "./user.service";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
@@ -37,6 +42,18 @@ export const getAdminUser: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "admin get successfully !",
+      data: result,
+    });
+  }
+);
+export const getAllUsers: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await getAllUsersFromDB();
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "All users retrived successfully !",
       data: result,
     });
   }
