@@ -1,4 +1,5 @@
 export const studentBusStops = [
+  "Campus",
   "Collage More",
   "Terminal",
   "Bot-toli",
