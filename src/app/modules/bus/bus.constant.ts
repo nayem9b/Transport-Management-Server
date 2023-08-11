@@ -1,15 +1,30 @@
-export const studentBusStops = [
+export const FromCampusBusStops = [
   "Campus",
-  "Collage More",
+  "College More",
   "Terminal",
   "Bot-toli",
   "Shahi Masjid",
   "Shahid Minar More",
   "Boro-Math",
 ];
-export const terminalBusStops = ["Collage More", "Terminal"];
+export const FromCampusToTerminalBusStops = [
+  "Campus",
+  "College More",
+  "Terminal",
+];
+export const FromTownBusStops = [
+  "Boro-Math",
+  "Shahid Minar More",
+  "Shahi Masjid",
+  "Bot-toli",
+  "Terminal",
+  "College More",
+  "Campus",
+];
 
-export const teacherBusStops = [
+export const terminalBusStops = ["Terminal", "College More", "Campus"];
+
+export const staffBusStops = [
   "Balubari",
   "Fulbari",
   "Baluadanga",

@@ -1,9 +1,11 @@
 import { Schema, model } from "mongoose";
 import { IBus } from "./bus.interface";
 import {
-  studentBusStops,
-  teacherBusStops,
+  FromCampusBusStops,
+  FromTownBusStops,
+  staffBusStops,
   terminalBusStops,
+  FromCampusToTerminalBusStops,
 } from "./bus.constant";
 
 const busSchema = new Schema<IBus>({
@@ -34,10 +36,17 @@ const busSchema = new Schema<IBus>({
 
 busSchema.pre("save", async function (next) {
   let bus = this;
-  if (bus.busType === "Student") {
-    bus.stopage = studentBusStops;
+  if (bus.busType === "Student" && bus.location === "fromcampus") {
+    bus.stopage = FromCampusBusStops;
+  } else if (bus.busType === "Student" && bus.location === "fromtown") {
+    bus.stopage = FromTownBusStops;
+  } else if (
+    bus.busType === "Student" &&
+    bus.location === "fromCampusToTerminal"
+  ) {
+    bus.stopage = FromCampusToTerminalBusStops;
   } else {
-    bus.stopage = teacherBusStops;
+    bus.stopage = staffBusStops;
   }
   if (bus.location === "fromTerminal") {
     bus.stopage = terminalBusStops;
