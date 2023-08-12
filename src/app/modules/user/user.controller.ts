@@ -4,6 +4,7 @@ import {
   getAdminFromDB,
   getAllUsersFromDB,
   getUserFromDB,
+  verifyUserFromDB,
 } from "./user.service";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
@@ -68,6 +69,21 @@ export const getUser: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "User retrived successfully!",
+      data: result,
+    });
+  }
+);
+
+export const VerifyUser: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+    const result = await verifyUserFromDB(id, updatedData);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "User verified successfully!",
       data: result,
     });
   }
