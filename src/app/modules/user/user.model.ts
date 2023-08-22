@@ -32,6 +32,9 @@ const userSchema = new Schema<IUser>({
   employeeId: {
     type: String,
   },
+  teacherId: {
+    type: String,
+  },
 });
 
 export const User = model<IUser>("users", userSchema);

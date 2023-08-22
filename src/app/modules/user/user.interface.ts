@@ -7,4 +7,5 @@ export interface IUser {
   email: string;
   employeeId?: string;
   isVerified: boolean;
+  teacherId?: string;
 }
