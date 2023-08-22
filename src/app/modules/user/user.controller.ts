@@ -1,6 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import {
   createUserToDB,
+  deleteUserFromDB,
   getAdminFromDB,
   getAllUsersFromDB,
   getUserFromDB,
@@ -10,6 +11,7 @@ import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import { IUser } from "./user.interface";
+import { IBus } from "../bus/bus.interface";
 
 export const confirmation = async (
   req: Request,
@@ -84,6 +86,20 @@ export const VerifyUser: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "User verified successfully!",
+      data: result,
+    });
+  }
+);
+
+export const deleteSpecificUser = catchAsync(
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    const result = await deleteUserFromDB(id);
+    sendResponse<IUser>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "User DELETED successfully !",
       data: result,
     });
   }

@@ -30,3 +30,8 @@ export const verifyUserFromDB = async (id: any, payload: Partial<IUser>) => {
   });
   return verifiedUser;
 };
+
+export const deleteUserFromDB = async (id: string): Promise<IUser | null> => {
+  const result = await User.findByIdAndDelete(id);
+  return result;
+};

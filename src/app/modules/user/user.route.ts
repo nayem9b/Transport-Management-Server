@@ -3,6 +3,7 @@ import {
   VerifyUser,
   confirmation,
   createUser,
+  deleteSpecificUser,
   getAdminUser,
   getAllUsers,
   getUser,
@@ -15,4 +16,5 @@ router.get("/users/user/:id", getUser);
 router.post("/user", createUser);
 router.get("/all-users", getAllUsers);
 router.patch("/verify-user/:id", VerifyUser);
+router.delete("/user/:id", deleteSpecificUser);
 export const UserRoutes = router;
