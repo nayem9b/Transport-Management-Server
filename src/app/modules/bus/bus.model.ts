@@ -49,7 +49,12 @@ busSchema.pre("save", async function (next) {
   } else if (bus.busType !== "Student" && bus.location === "fromcampus") {
     bus.stopage = FromCampusStaffBusStops;
   } else if (bus.busType !== "Student" && bus.location === "fromtown") {
-    bus.stopage === FromTownStaffBusStops;
+    bus.stopage = FromTownStaffBusStops;
+  } else if (
+    bus.busType !== "Student" &&
+    bus.location === "fromCampusToTerminal"
+  ) {
+    bus.stopage = FromCampusToTerminalBusStops;
   }
   if (bus.location === "fromTerminal") {
     bus.stopage = terminalBusStops;
