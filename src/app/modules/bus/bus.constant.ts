@@ -24,9 +24,18 @@ export const FromTownBusStops = [
 
 export const terminalBusStops = ["Terminal", "College More", "Campus"];
 
-export const staffBusStops = [
+export const FromCampusStaffBusStops = [
+  "Campus",
   "Balubari",
   "Fulbari",
   "Baluadanga",
   "Eidgabosti",
+];
+
+export const FromTownStaffBusStops = [
+  "Eidgabosti",
+  "Baluadanga",
+  "Fulbari",
+  "Balubari",
+  "Campus"
 ];

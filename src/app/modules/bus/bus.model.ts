@@ -3,9 +3,10 @@ import { IBus } from "./bus.interface";
 import {
   FromCampusBusStops,
   FromTownBusStops,
-  staffBusStops,
   terminalBusStops,
   FromCampusToTerminalBusStops,
+  FromCampusStaffBusStops,
+  FromTownStaffBusStops,
 } from "./bus.constant";
 
 const busSchema = new Schema<IBus>({
@@ -45,8 +46,10 @@ busSchema.pre("save", async function (next) {
     bus.location === "fromCampusToTerminal"
   ) {
     bus.stopage = FromCampusToTerminalBusStops;
-  } else {
-    bus.stopage = staffBusStops;
+  } else if (bus.busType !== "Student" && bus.location === "fromcampus") {
+    bus.stopage = FromCampusStaffBusStops;
+  } else if (bus.busType !== "Student" && bus.location === "fromtown") {
+    bus.stopage === FromTownStaffBusStops;
   }
   if (bus.location === "fromTerminal") {
     bus.stopage = terminalBusStops;
