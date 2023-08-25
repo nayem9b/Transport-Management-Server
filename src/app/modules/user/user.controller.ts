@@ -4,6 +4,7 @@ import {
   deleteUserFromDB,
   getAdminFromDB,
   getAllUsersFromDB,
+  getUnverifiedUsersFromDB,
   getUserFromDB,
   verifyUserFromDB,
 } from "./user.service";
@@ -52,6 +53,19 @@ export const getAdminUser: RequestHandler = catchAsync(
 export const getAllUsers: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const result = await getAllUsersFromDB();
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "All users retrived successfully !",
+      data: result,
+    });
+  }
+);
+
+export const getUnverifiedUsers: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await getUnverifiedUsersFromDB();
 
     sendResponse(res, {
       statusCode: httpStatus.OK,

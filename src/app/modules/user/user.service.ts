@@ -13,6 +13,11 @@ export const getAllUsersFromDB = async (): Promise<IUser[]> => {
   console.log(allUsers);
   return allUsers;
 };
+export const getUnverifiedUsersFromDB = async (): Promise<IUser[]> => {
+  const allUsers = await User.find({ isVerified: false });
+  console.log(allUsers);
+  return allUsers;
+};
 
 export const getAdminFromDB = async (id) => {
   const adminUser = await User.find({ email: id });
