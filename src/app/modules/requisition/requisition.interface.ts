@@ -13,4 +13,5 @@ export interface IRequisition {
   starting_time?: string;
   ending_time?: string;
   purpose?: string;
+  destination?: string;
 }

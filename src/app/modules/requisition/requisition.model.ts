@@ -50,6 +50,9 @@ const RequisitionSchema = new Schema<IRequisition>({
   purpose: {
     type: String,
   },
+  destination: {
+    type: String,
+  },
 });
 
 export const Requisition = model<IRequisition>(

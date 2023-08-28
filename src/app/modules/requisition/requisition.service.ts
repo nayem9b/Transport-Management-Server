@@ -19,6 +19,11 @@ export const getAllRequisitionFromDB = async () => {
   return allRequisitions;
 };
 
+export const getAllUnverifiedRequisitionFromDB = async () => {
+  const allRequisitions = await Requisition.find({ isVerified: false });
+  return allRequisitions;
+};
+
 export const deleteRequisitionFromDB = async (id: string) => {
   const result = await Requisition.findByIdAndDelete(id);
   return result;

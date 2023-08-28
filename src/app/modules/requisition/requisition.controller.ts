@@ -6,6 +6,7 @@ import {
   createRequisitionToDB,
   deleteRequisitionFromDB,
   getAllRequisitionFromDB,
+  getAllUnverifiedRequisitionFromDB,
   getUserRequisitionFromDB,
   updateRequisitionFromDB,
 } from "./requisition.service";
@@ -33,6 +34,19 @@ export const getRequisitions: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "Requision retrived successfully !",
+      data: result,
+    });
+  }
+);
+
+export const getUnverifiedRequisitions: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const result = await getAllUnverifiedRequisitionFromDB();
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Unverified Requisions retrived successfully!",
       data: result,
     });
   }
